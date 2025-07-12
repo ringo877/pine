@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>「戦闘妖精ぱいんちゃん」公式サイト</title>
+		
+		<meta name="author" content="椎名綾乃">
+		<meta name="keywords" content="アニメ,ぱいんちゃん">
+		<meta name="description" content="アニメ「戦闘妖精ぱいんちゃん」の公式サイト">
+		
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		
+	</head>
+	<body>
+		<header>
+			<h1><a href="index.html">戦闘妖精ぱいんちゃん</a></h1>
+			
+			<!--グローバルナビゲーション 今いるところの色が変わって欲しい-->
+			<nav id="global_navi">
+				<ul>
+					<li><a href="index.html">トップ</a></li>
+					<!--トップ作るべきかしら？-->
+					<li><a href="about.html">各種情報</a></li>
+					<li><a href="story.html">おはなし</a></li>
+					<li><a href="character.html">登場人物・用語</a></li>
+					<li class="current"><a href="special.html">スペシャル</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<h2>スペシャル</h2>
+			<div id="special">
+				<h3>人気投票</h3>
+				<p>「戦闘妖精ぱいんちゃん」放送終了を記念して、人気投票を行います。投票して下さった方の中から抽選で10名様に、オリジナルグッズ「ぱいんちゃん変身セット」をプレゼントいたします。ぜひご応募ください！</p>
+				<p>締め切り：12月31日（木）まで</p>
+				<form action="program.cgi" method="post" id="entry">
+					<dl>
+					<dt>お名前 <span class="must">※</span></dt>
+					<dd><input type="text" id="name" required></dd>
+					
+					<dt>電話番号 <span class="must">※</span></dt>
+					<dd><input type="tel" id="tel" required></dd>
+					
+					<dt>メールアドレス <span class="must">※</span></dt>
+					<dd><input type="email" id="email" required></dd>
+					
+					<dt>媒体</dt>
+					<dd>
+						<p>どの媒体でアニメ「戦闘妖精ぱいんちゃん」を見ましたか？</p>
+						<p>（※複数選択可）</p>
+						<p>
+						<input type="checkbox" name="media" value="TV放送">TV放送
+						<input type="checkbox" name="media" value="ネット配信">ネット配信
+						<input type="checkbox" name="media" value="BD・DVD">BD・DVD
+						<input type="checkbox" name="media" value="その他">その他
+						</p>
+					</dd>
+					
+
+					<dt>好きなキャラクター</dt>
+					<dd>
+						<p>アニメ「戦闘妖精ぱいんちゃん」に出てくるキャラクターの中で最も好きなキャラクターをお選びください。</p>
+						<p>
+						<select>
+							<option value="ぱいん">ぱいん</option>
+							<option value="あぼかど">あぼかど</option>
+							<option value="ぴーち">ぴーち</option>
+							<option value="ぱぱいや">ぱぱいや</option>
+							<option value="グァパ先生">グァパ先生</option>
+							<option value="マンゴスチン女王">マンゴスチン女王</option>
+							<option value="ライチ王子">ライチ王子</option>
+							<option value="魔王ドリアン">魔王ドリアン</option>
+							<option value="その他">その他</option>
+						</select>
+						</p>
+					
+				<!--
+				<p>その他を選んだ場合、キャラクター名をお書きください。</p>
+					<p><input type="text" name="character"></p>-->
+					
+					<p><textarea rows="4" cols="40">よろしければ、そのキャラを選んだ理由もお書きください。その他を選んだ場合は、具体的なキャラクター名もお書きください。</textarea></p>
+					</dd>
+					
+					<dt>好きなおはなし</dt>
+					<dd><p>アニメ「戦闘妖精ぱいんちゃん」全13話の中で最も好きなお話をお選びください。</p>
+				<p>
+						<select>
+							<option value="第１話">第1話「ぱいんちゃん」</option>
+							<option value="第２話">第2話「あぼかど」</option>
+							<option value="第３話">第3話「ぴーち」</option>
+							<option value="第４話">第4話「ぱぱいや」</option>
+							<option value="第５話">第5話「とっくん」</option>
+							<option value="第６話">第6話「けっとう」</option>
+							<option value="第７話">第7話「としょかん」</option>
+							<option value="第８話">第8話「なかま」</option>
+							<option value="第９話">第9話「らいち」</option>
+							<option value="第１０話">第10話「おしろ」</option>
+							<option value="第１１話">第11話「どりあん」</option>
+							<option value="第１２話">第12話「けつい」</option>
+							<option value="第１３話">第13話「たたかい」</option>
+						</select>
+					</p>
+					<p><textarea rows="4" cols="40">よろしければ、そのお話を選んだ理由もお書きください。</textarea></p>
+					</dd>
+					<dt>感想</dt>
+					<dd>
+					<p>アニメ「戦闘妖精ぱいんちゃん」のご感想をご自由にお書きください。</p>
+					<p><textarea rows="5" cols="40" id="impression"></textarea></p>
+					</dd>
+					</dl>
+					<p id="submit_button_cover"><input type="submit" value="送信する" id="submit_button"></p>
+					
+				</form>
+				
+				<p>ご協力ありがとうございました！　結果は後日当サイトにて発表を予定しております。</p>
+			</div>
+		</section>
+		<footer>
+			<hr>
+			<address>作成者：椎名綾乃 shiinaayano@akane.waseda.jp</address>
+			<p><small>Copyright 2020 Ayano Shiina</small></p>
+			<p>作成日：<time>2020-08-19</time></p>
+			<p>更新日：<time>2020-08-21</time></p>
+		</footer>
+	</body>
+</html>
