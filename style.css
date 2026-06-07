@@ -255,113 +255,174 @@ footer {
 }
 
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 768px) {
 	body {
-		margin: 0px 5px;
+		margin: 16px 12px;
+		font-size: 16px;
 	}
-	
+
 	img {
 		max-width: 100%;
+		height: auto;
 	}
+
 	header,
-	#global_navi{
+	#global_navi {
 		width: 100%;
-	}
-	
-	h1 {
-		font-size: 30px;
-	}
-	
-	#global_navi ul li {
-		width: 50%;
-		padding: 0.5px;
-		margin: 0px;
 		box-sizing: border-box;
 	}
-	
-	#global_navi ul li a {
-		margin: 0px;
+
+	h1 {
+		font-size: 26px;
 	}
-	
+
+	h2 {
+		font-size: 22px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	/* グローバルナビ：2カラムグリッド、最後の1項目は全幅 */
+	#global_navi ul li {
+		width: 50%;
+		float: left;
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	#global_navi ul li a {
+		margin: 0;
+	}
+
 	#global_navi ul li:last-child {
 		width: 100%;
 	}
-	
+
+	/* about ページ：サイドナビを上に、本文を下に縦積み */
 	#about {
-		width: 310px;
-		padding: 0.5px;
-		margin: 0px;
+		float: none;
+		width: 100%;
+		padding: 0;
+		margin: 0 0 12px 0;
+		box-sizing: border-box;
 	}
-	
+
 	#about ul li {
 		width: 100%;
-		padding: 0.5px 0px;
-		margin: 0px;
+		padding: 2px 0;
+		margin: 0;
 		box-sizing: border-box;
 	}
-	
+
 	#abo {
-		margin-left: 0px;
+		margin-left: 0;
 	}
-	
+
+	/* テーブルが画面幅を超えないよう横スクロール許可 */
+	table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	table th,
+	table td {
+		padding: 8px 12px;
+		white-space: nowrap;
+	}
+
+	/* story ページ：サイドナビを上に、本文を下に縦積み */
 	#story {
-		width: 310px;
-		padding: 0.5px;
-		margin: 0px;
+		float: none;
+		width: 100%;
+		padding: 0;
+		margin: 0 0 12px 0;
+		box-sizing: border-box;
 	}
-	
+
 	#story ul li {
 		width: 100%;
-		padding: 0.5px 0px;
-		margin: 0px;
+		padding: 2px 0;
+		margin: 0;
 		box-sizing: border-box;
 	}
-	
+
 	#sto {
-		margin-left: 0px;
+		margin-left: 0;
 	}
-	
+
+	/* character ページ：サイドナビを上に、本文を下に縦積み */
 	#character {
-		width: 310px;
-		padding: 0.5px;
-		margin: 0px;
+		float: none;
+		width: 100%;
+		padding: 0;
+		margin: 0 0 12px 0;
+		box-sizing: border-box;
 	}
-	
+
 	#character ul li {
-		width: 310px;
-		padding: 0.5px 0px;
-		margin: 0px;
+		width: 100%;
+		padding: 2px 0;
+		margin: 0;
+		box-sizing: border-box;
 	}
-	
+
 	#chara {
-		margin-left: 0px;
+		margin-left: 0;
 		clear: both;
 	}
-	
+
+	/* special ページ */
 	#special {
-		margin: 0px;
+		margin: 0;
 	}
-	
+
+	/* フォーム：ラベルと入力欄を縦積みに */
 	#entry dl dt {
 		width: 100%;
 		float: none;
+		clear: both;
 		box-sizing: border-box;
 	}
-	
+
 	#entry dl dd {
 		width: 100%;
 		border-left: none;
 		margin-left: 0;
 		box-sizing: border-box;
 	}
-	
-	#entry #name,#entry #tel,#entry #email,#entry #impression{
-		max-width: 100%;
-	}
-	
-	#entry #impression{
+
+	/* iOS Safari の自動ズームを防ぐため入力欄は16px以上に統一 */
+	#entry #name,
+	#entry #tel,
+	#entry #email {
 		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		font-size: 16px;
+	}
+
+	#entry #impression {
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		font-size: 16px;
+	}
+
+	#entry select,
+	#entry textarea {
+		font-size: 16px;
+		max-width: 100%;
 		box-sizing: border-box;
 	}
-	
+
+	#entry #submit_button {
+		width: 100%;
+		padding: 15px 20px;
+		font-size: 18px;
+		box-sizing: border-box;
+	}
 }
