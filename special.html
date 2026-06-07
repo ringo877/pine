@@ -34,17 +34,17 @@
 				<h3>人気投票</h3>
 				<p>「戦闘妖精ぱいんちゃん」放送終了を記念して、人気投票を行います。投票して下さった方の中から抽選で10名様に、オリジナルグッズ「ぱいんちゃん変身セット」をプレゼントいたします。ぜひご応募ください！</p>
 				<p>締め切り：12月31日（木）まで</p>
-				<form action="program.cgi" method="post" id="entry">
+				<form id="entry">
 					<dl>
 					<dt>お名前 <span class="must">※</span></dt>
-					<dd><input type="text" id="name" required></dd>
-					
+					<dd><input type="text" id="name" name="name" required></dd>
+
 					<dt>電話番号 <span class="must">※</span></dt>
-					<dd><input type="tel" id="tel" required></dd>
-					
+					<dd><input type="tel" id="tel" name="tel" required></dd>
+
 					<dt>メールアドレス <span class="must">※</span></dt>
-					<dd><input type="email" id="email" required></dd>
-					
+					<dd><input type="email" id="email" name="email" required></dd>
+
 					<dt>媒体</dt>
 					<dd>
 						<p>どの媒体でアニメ「戦闘妖精ぱいんちゃん」を見ましたか？</p>
@@ -56,13 +56,13 @@
 						<input type="checkbox" name="media" value="その他">その他
 						</p>
 					</dd>
-					
+
 
 					<dt>好きなキャラクター</dt>
 					<dd>
 						<p>アニメ「戦闘妖精ぱいんちゃん」に出てくるキャラクターの中で最も好きなキャラクターをお選びください。</p>
 						<p>
-						<select>
+						<select name="character">
 							<option value="ぱいん">ぱいん</option>
 							<option value="あぼかど">あぼかど</option>
 							<option value="ぴーち">ぴーち</option>
@@ -74,18 +74,14 @@
 							<option value="その他">その他</option>
 						</select>
 						</p>
-					
-				<!--
-				<p>その他を選んだ場合、キャラクター名をお書きください。</p>
-					<p><input type="text" name="character"></p>-->
-					
-					<p><textarea rows="4" cols="40">よろしければ、そのキャラを選んだ理由もお書きください。その他を選んだ場合は、具体的なキャラクター名もお書きください。</textarea></p>
+
+					<p><textarea name="character_reason" rows="4" cols="40" placeholder="よろしければ、そのキャラを選んだ理由もお書きください。その他を選んだ場合は、具体的なキャラクター名もお書きください。"></textarea></p>
 					</dd>
-					
+
 					<dt>好きなおはなし</dt>
 					<dd><p>アニメ「戦闘妖精ぱいんちゃん」全13話の中で最も好きなお話をお選びください。</p>
 				<p>
-						<select>
+						<select name="story">
 							<option value="第１話">第1話「ぱいんちゃん」</option>
 							<option value="第２話">第2話「あぼかど」</option>
 							<option value="第３話">第3話「ぴーち」</option>
@@ -101,19 +97,54 @@
 							<option value="第１３話">第13話「たたかい」</option>
 						</select>
 					</p>
-					<p><textarea rows="4" cols="40">よろしければ、そのお話を選んだ理由もお書きください。</textarea></p>
+					<p><textarea name="story_reason" rows="4" cols="40" placeholder="よろしければ、そのお話を選んだ理由もお書きください。"></textarea></p>
 					</dd>
 					<dt>感想</dt>
 					<dd>
 					<p>アニメ「戦闘妖精ぱいんちゃん」のご感想をご自由にお書きください。</p>
-					<p><textarea rows="5" cols="40" id="impression"></textarea></p>
+					<p><textarea rows="5" cols="40" id="impression" name="impression"></textarea></p>
 					</dd>
 					</dl>
 					<p id="submit_button_cover"><input type="submit" value="送信する" id="submit_button"></p>
-					
+					<p id="form-message"></p>
 				</form>
-				
+
 				<p>ご協力ありがとうございました！　結果は後日当サイトにて発表を予定しております。</p>
+
+				<script>
+				document.getElementById('entry').addEventListener('submit', async function(e) {
+					e.preventDefault();
+					var btn = document.getElementById('submit_button');
+					var msg = document.getElementById('form-message');
+					btn.disabled = true;
+					btn.value = '送信中...';
+					msg.textContent = '';
+
+					var params = new URLSearchParams(new FormData(this));
+
+					try {
+						var res = await fetch('YOUR_API_GATEWAY_URL', {
+							method: 'POST',
+							headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+							body: params.toString()
+						});
+						var data = await res.json();
+						if (data.message === 'success') {
+							msg.textContent = '送信が完了しました。ご応募ありがとうございました！';
+							msg.style.color = 'green';
+							this.reset();
+						} else {
+							throw new Error('server error');
+						}
+					} catch (err) {
+						msg.textContent = '送信に失敗しました。しばらく経ってから再度お試しください。';
+						msg.style.color = 'red';
+					} finally {
+						btn.disabled = false;
+						btn.value = '送信する';
+					}
+				});
+				</script>
 			</div>
 		</section>
 		<footer>
