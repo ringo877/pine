@@ -55,6 +55,7 @@
 						<input type="checkbox" name="media" value="BD・DVD">BD・DVD
 						<input type="checkbox" name="media" value="その他">その他
 						</p>
+						<p id="media-error" style="color:red; display:none; margin:0.3em 0 0;">視聴媒体を1つ以上選択してください。</p>
 					</dd>
 
 
@@ -122,13 +123,14 @@
 					btn.value = '送信中...';
 					msg.textContent = '';
 
+					var mediaError = document.getElementById('media-error');
 					if (this.querySelectorAll('input[name="media"]:checked').length === 0) {
-						msg.textContent = '視聴媒体を1つ以上選択してください。';
-						msg.style.color = 'red';
+						mediaError.style.display = '';
 						btn.disabled = false;
 						btn.value = '送信する';
 						return;
 					}
+					mediaError.style.display = 'none';
 
 					var params = new URLSearchParams(new FormData(this));
 
@@ -153,6 +155,13 @@
 						btn.disabled = false;
 						btn.value = '送信する';
 					}
+				});
+				document.querySelectorAll('input[name="media"]').forEach(function(cb) {
+					cb.addEventListener('change', function() {
+						if (document.querySelectorAll('input[name="media"]:checked').length > 0) {
+							document.getElementById('media-error').style.display = 'none';
+						}
+					});
 				});
 				</script>
 			</div>
