@@ -40,12 +40,12 @@
 					<dd><input type="text" id="name" name="name" required></dd>
 
 					<dt>電話番号 <span class="must">※</span></dt>
-					<dd><input type="tel" id="tel" name="tel" required></dd>
+					<dd><input type="tel" id="tel" name="tel" required pattern="[0-9\-]{10,13}" title="電話番号を入力してください（例：090-1234-5678）"></dd>
 
 					<dt>メールアドレス <span class="must">※</span></dt>
 					<dd><input type="email" id="email" name="email" required></dd>
 
-					<dt>媒体</dt>
+					<dt>媒体 <span class="must">※</span></dt>
 					<dd>
 						<p>どの媒体でアニメ「戦闘妖精ぱいんちゃん」を見ましたか？</p>
 						<p>（※複数選択可）</p>
@@ -58,11 +58,12 @@
 					</dd>
 
 
-					<dt>好きなキャラクター</dt>
+					<dt>好きなキャラクター <span class="must">※</span></dt>
 					<dd>
 						<p>アニメ「戦闘妖精ぱいんちゃん」に出てくるキャラクターの中で最も好きなキャラクターをお選びください。</p>
 						<p>
-						<select name="character">
+						<select name="character" required>
+							<option value="" disabled selected>選択してください</option>
 							<option value="ぱいん">ぱいん</option>
 							<option value="あぼかど">あぼかど</option>
 							<option value="ぴーち">ぴーち</option>
@@ -75,13 +76,14 @@
 						</select>
 						</p>
 
-					<p><textarea name="character_reason" rows="4" cols="40" placeholder="よろしければ、そのキャラを選んだ理由もお書きください。その他を選んだ場合は、具体的なキャラクター名もお書きください。"></textarea></p>
+					<p><textarea name="character_reason" rows="4" cols="40" required placeholder="そのキャラクターを選んだ理由をお書きください。その他を選んだ場合は、具体的なキャラクター名もお書きください。"></textarea></p>
 					</dd>
 
-					<dt>好きなおはなし</dt>
+					<dt>好きなおはなし <span class="must">※</span></dt>
 					<dd><p>アニメ「戦闘妖精ぱいんちゃん」全13話の中で最も好きなお話をお選びください。</p>
 				<p>
-						<select name="story">
+						<select name="story" required>
+							<option value="" disabled selected>選択してください</option>
 							<option value="第１話">第1話「ぱいんちゃん」</option>
 							<option value="第２話">第2話「あぼかど」</option>
 							<option value="第３話">第3話「ぴーち」</option>
@@ -97,7 +99,7 @@
 							<option value="第１３話">第13話「たたかい」</option>
 						</select>
 					</p>
-					<p><textarea name="story_reason" rows="4" cols="40" placeholder="よろしければ、そのお話を選んだ理由もお書きください。"></textarea></p>
+					<p><textarea name="story_reason" rows="4" cols="40" required placeholder="そのお話を選んだ理由をお書きください。"></textarea></p>
 					</dd>
 					<dt>感想</dt>
 					<dd>
@@ -119,6 +121,14 @@
 					btn.disabled = true;
 					btn.value = '送信中...';
 					msg.textContent = '';
+
+					if (this.querySelectorAll('input[name="media"]:checked').length === 0) {
+						msg.textContent = '視聴媒体を1つ以上選択してください。';
+						msg.style.color = 'red';
+						btn.disabled = false;
+						btn.value = '送信する';
+						return;
+					}
 
 					var params = new URLSearchParams(new FormData(this));
 
