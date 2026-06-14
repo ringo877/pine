@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-const RECIPIENT = 'REDACTED_EMAIL'
-
 export async function POST(req: NextRequest) {
   try {
     const text = await req.text()
@@ -48,7 +46,7 @@ ${impression}
 
     await transporter.sendMail({
       from: process.env.GMAIL_ADDRESS,
-      to: RECIPIENT,
+      to: process.env.GMAIL_ADDRESS,
       subject: '【ぱいんちゃん】人気投票応募が届きました',
       text: body,
       ...(email !== '（未入力）' ? { replyTo: email } : {}),
