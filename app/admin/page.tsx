@@ -98,7 +98,7 @@ export default async function AdminPage({
             <tbody>
               {recent.map((v) => (
                 <tr key={v.id} className="border-t border-[#FFD93D]/20">
-                  <td className="px-4 py-2 text-gray-500 whitespace-nowrap">{new Date(v.createdAt).toLocaleDateString('ja-JP')}</td>
+                  <td className="px-4 py-2 text-gray-500 whitespace-nowrap">{new Date(v.createdAt).toLocaleString('ja-JP')}</td>
                   <td className="px-4 py-2 text-gray-700">{v.name}</td>
                   <td className="px-4 py-2 text-gray-700">{v.character}</td>
                   <td className="px-4 py-2 text-gray-700">{v.story}</td>
