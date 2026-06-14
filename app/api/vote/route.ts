@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { getDb } from '@/db'
+import { votes } from '@/db/schema'
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,11 +14,17 @@ export async function POST(req: NextRequest) {
     const email           = get('email')
     const media           = params.getAll('media').join('、') || '（未選択）'
     const character       = get('character')
-    const characterReason = get('character_reason')
+    const characterReason = params.get('character_reason') ?? ''
     const story           = get('story')
-    const storyReason     = get('story_reason')
-    const impression      = get('impression')
+    const storyReason     = params.get('story_reason') ?? ''
+    const impression      = params.get('impression') ?? ''
 
+    // DBに保存
+    await getDb().insert(votes).values({
+      name, tel, email, media, character, characterReason, story, storyReason, impression,
+    })
+
+    // メール送信
     const body = `「妖精戦士ぱいんちゃん」人気投票 応募内容
 
 ■ お名前：${name}
@@ -33,15 +41,11 @@ export async function POST(req: NextRequest) {
 ■ 感想：
 ${impression}
 `
-
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 587,
       secure: false,
-      auth: {
-        user: process.env.GMAIL_ADDRESS,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
+      auth: { user: process.env.GMAIL_ADDRESS, pass: process.env.GMAIL_APP_PASSWORD },
     })
 
     await transporter.sendMail({
