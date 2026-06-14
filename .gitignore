@@ -1,10 +1,19 @@
+# Next.js
+.next/
+out/
+
 # Vercel
 .vercel/
+
+# 依存関係
+node_modules/
+
+# 環境変数（ローカル開発用）
+.env*.local
 
 # macOS
 .DS_Store
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
+# SAM（旧構成の残骸）
+.aws-sam/
+samconfig.toml

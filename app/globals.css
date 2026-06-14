@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine-yellow: #FFD93D;
+  --color-pine-pink:   #FF8FB1;
+  --color-pine-mint:   #A8E6CF;
+  --color-pine-cream:  #FFFBF0;
+}
+
+body {
+  background-color: #FFFBF0;
+  color: #333333;
+}
