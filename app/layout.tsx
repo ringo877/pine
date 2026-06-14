@@ -12,9 +12,9 @@ const font = M_PLUS_Rounded_1c({
 })
 
 export const metadata: Metadata = {
-  title: '「戦闘妖精ぱいんちゃん」公式サイト',
+  title: '「妖精戦士ぱいんちゃん」公式サイト',
   description:
-    'アニメ「戦闘妖精ぱいんちゃん」の公式サイトです。放送・配信情報やスタッフ・キャスト、おはなしのあらすじ、登場人物や用語など、様々な情報をお届けします。',
+    'アニメ「妖精戦士ぱいんちゃん」の公式サイトです。放送・配信情報やスタッフ・キャスト、おはなしのあらすじ、キャラクターや用語など、様々な情報をお届けします。',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

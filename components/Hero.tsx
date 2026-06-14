@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            戦闘妖精<br />
+            妖精戦士<br />
             <span className="text-[#FF8FB1]">ぱいんちゃん</span>
           </motion.h2>
           <motion.p
@@ -72,7 +72,7 @@ export default function Hero() {
           transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
         >
           <Image
-            src="/img/yousei.png"
+            src="/yousei.png"
             alt="妖精の画像"
             width={280}
             height={280}

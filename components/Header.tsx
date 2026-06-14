@@ -26,7 +26,7 @@ export default function Header() {
           href="/"
           className="text-lg font-black text-[#FF8FB1] hover:opacity-80 transition-opacity"
         >
-          戦闘妖精ぱいんちゃん
+          妖精戦士ぱいんちゃん
         </Link>
 
         {/* デスクトップナビ */}

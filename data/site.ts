@@ -2,7 +2,7 @@ export const navItems = [
   { label: 'トップ', href: '/' },
   { label: '各種情報', href: '/about' },
   { label: 'おはなし', href: '/story' },
-  { label: '登場人物・用語', href: '/character' },
+  { label: 'キャラクター・用語', href: '/character' },
   { label: 'スペシャル', href: '/special' },
 ] as const
 

@@ -108,7 +108,7 @@ export default function VoteForm() {
           媒体<Required />
         </p>
         <p className="text-xs text-gray-500 mb-3">
-          どの媒体でアニメ「戦闘妖精ぱいんちゃん」を見ましたか？（複数選択可）
+          どの媒体でアニメ「妖精戦士ぱいんちゃん」を見ましたか？（複数選択可）
         </p>
         <div className="flex flex-wrap gap-4">
           {MEDIA.map((m) => (
@@ -199,7 +199,7 @@ export default function VoteForm() {
           感想
         </label>
         <p className="text-xs text-gray-500 mb-2">
-          アニメ「戦闘妖精ぱいんちゃん」のご感想をご自由にお書きください。
+          アニメ「妖精戦士ぱいんちゃん」のご感想をご自由にお書きください。
         </p>
         <textarea
           id="impression"

@@ -11,8 +11,8 @@ export default function HomePage() {
       {/* サイト紹介 */}
       <Reveal className="mt-10 text-center max-w-2xl mx-auto">
         <p className="text-gray-600 leading-relaxed">
-          アニメ「戦闘妖精ぱいんちゃん」の公式サイトです。<br />
-          放送・配信情報やスタッフ・キャスト、おはなしのあらすじ、登場人物や用語など、様々な情報をお届けします。
+          アニメ「妖精戦士ぱいんちゃん」の公式サイトです。<br />
+          放送・配信情報やスタッフ・キャスト、おはなしのあらすじ、キャラクターや用語など、様々な情報をお届けします。
         </p>
         <p className="mt-3 text-xs text-gray-400">
           ※当サイト内の画像は、全て「いらすとや」さんからお借りしております。「いらすとや」{' '}

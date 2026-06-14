@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const storyReason     = get('story_reason')
     const impression      = get('impression')
 
-    const body = `「戦闘妖精ぱいんちゃん」人気投票 応募内容
+    const body = `「妖精戦士ぱいんちゃん」人気投票 応募内容
 
 ■ お名前：${name}
 ■ 電話番号：${tel}

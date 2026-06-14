@@ -10,7 +10,7 @@ export default function SpecialPage() {
         <div className="bg-gradient-to-br from-yellow-50 to-pink-50 rounded-3xl p-6 md:p-8 mb-8 border border-[#FFD93D]/30 text-center">
           <h2 className="text-2xl font-black text-[#FF8FB1] mb-3">✨ 人気投票 ✨</h2>
           <p className="text-gray-700 leading-relaxed text-sm">
-            「戦闘妖精ぱいんちゃん」放送終了を記念して、人気投票を行います。
+            「妖精戦士ぱいんちゃん」放送終了を記念して、人気投票を行います。
             投票して下さった方の中から抽選で10名様に、オリジナルグッズ「ぱいんちゃん変身セット」をプレゼントいたします。ぜひご応募ください！
           </p>
           <p className="mt-3 text-[#FF8FB1] font-black text-sm">締め切り：12月31日（木）まで</p>

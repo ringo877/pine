@@ -19,10 +19,10 @@ function SubHeading({ children, color = '#FFD93D' }: { children: React.ReactNode
 export default function CharacterPage() {
   return (
     <div>
-      <h1 className="text-3xl font-black text-center text-gray-800 mt-4 mb-10">登場人物・用語</h1>
+      <h1 className="text-3xl font-black text-center text-gray-800 mt-4 mb-10">キャラクター・用語</h1>
 
       <section className="mb-14">
-        <SubHeading>登場人物</SubHeading>
+        <SubHeading>キャラクター</SubHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {characters.map((c, i) => (
             <Reveal key={c.id} delay={Math.min(i * 0.05, 0.3)}>
